@@ -36,7 +36,7 @@ Ball.prototype.update = function() {
         this.velX = -(this.velX);
     }
 
-    if ((this.x + this.size) <= 0) {
+    if ((this.x - this.size) <= 0) {
         this.velX = -(this.velX);
     }
 
@@ -44,7 +44,7 @@ Ball.prototype.update = function() {
         this.velY = -(this.velY);
     }
 
-    if ((this.y + this.size) <= 0) {
+    if ((this.y - this.size) <= 0) {
         this.velY = -(this.velY);
     }
 
