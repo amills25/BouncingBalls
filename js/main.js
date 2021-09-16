@@ -54,13 +54,15 @@ Ball.prototype.update = function() {
 
 //function for ball collision detection
 Ball.prototype.collisionDetect = function() {
-    for (let j = 0; j < balls.length; j++){
-        if (!(this === balls[j])){
+    for (let j = 0; j < balls.length; j++) { //go through every ball in the array
+        if (!(this === balls[j])) { //checking to see if we're looking at 2 different balls
+            //2D collision detection algorithm
             const dx = this.x - balls[j].x;
             const dy = this.y - balls[j].y;
             const distance = Math.sqrt(dx * dx + dy * dy);
 
-            if (distance < this.size + balls[j].size) { //checking to see if the 2 balls overlap
+            //checking to see if the 2 balls overlap
+            if (distance < this.size + balls[j].size) {
                 balls[j].color = this.color = 'rgb(' + random(0, 255) + ',' + random(0, 255) + ',' + random(0, 255) +')';
             }
         }
