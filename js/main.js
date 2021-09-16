@@ -1,5 +1,4 @@
 // setup canvas
-
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 
@@ -7,13 +6,13 @@ const width = canvas.width = window.innerWidth;
 const height = canvas.height = window.innerHeight;
 
 // function to generate random number
-
 function random(min, max) {
   const num = Math.floor(Math.random() * (max - min + 1)) + min;
   return num;
 }
 
 //function to generate ball behavior
+//creates a starting point on screen, speed, color, and size for each ball
 function Ball(x, y, velX, velY, color, size) {
   this.x = x;
   this.y = y;
@@ -25,10 +24,10 @@ function Ball(x, y, velX, velY, color, size) {
 
 //function to draw the balls
 Ball.prototype.draw = function() {
-  ctx.beginPath();
-  ctx.fillStyle = this.color;
-  ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
-  ctx.fill();
+  ctx.beginPath(); //draws circle
+  ctx.fillStyle = this.color; //gives circle a color
+  ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI); //creates a complete circle
+  ctx.fill(); //completes beginPath()
 }
 
 //function to update the ball's data
