@@ -21,6 +21,9 @@ We want the user to be able to control an "evil cirle" and see changes to the bo
  * Function to draw the balls
    * Add draw() to Ball() prototype
 
+* Function to update ball's data
+   * Changing this.x and this.y to keep ball in window
+
 ### END
 
 #### Functions, Objects, Arrays
@@ -37,3 +40,8 @@ We want the user to be able to control an "evil cirle" and see changes to the bo
    * fillStyle
    * arc()
    * fill()
+
+ * update()
+   * IF statements to change velX and velY
+   * x += velX
+   * y += velY
