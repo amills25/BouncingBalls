@@ -32,19 +32,19 @@ Ball.prototype.draw = function() {
 
 //function to update the ball's data
 Ball.prototype.update = function() {
-    if ((this.x + this.size) >= width) {
+    if ((this.x + this.size) >= width) { //bounce off right edge
         this.velX = -(this.velX);
     }
 
-    if ((this.x - this.size) <= 0) {
+    if ((this.x - this.size) <= 0) { //bounce off left edge
         this.velX = -(this.velX);
     }
 
-    if ((this.y + this.size) >= height) {
+    if ((this.y + this.size) >= height) { //bounce off bottom edge
         this.velY = -(this.velY);
     }
 
-    if ((this.y - this.size) <= 0) {
+    if ((this.y - this.size) <= 0) { //bounce off top edge
         this.velY = -(this.velY);
     }
 
@@ -70,32 +70,36 @@ Ball.prototype.collisionDetect = function() {
 //store and populate the balls
 let balls = [];
 
+//creating 25 balls with random sizes and colors
 while (balls.length < 25) {
     let size = random(10,20);
-    let ball = new Ball(
-        //ball position always drawn at least one ball with
+    let ball = new Ball( 
+        //ball position always drawn at least one ball width
         //away from the edge of the canvas, to avoid drawing errors
-        random(0 + size,width - size),
-        random(0 + size,height - size),
+        random(0 + size, width - size),
+        random(0 + size, height - size),
         random(-7,7),
         random(-7,7),
-        'rgb(' + random(0,255) + ',' + random(0,255) + ',' + random(0,255) +')', size
+        'rgb(' + random(0,255) + ',' + random(0,255) + ',' + random(0,255) +')',
+        size
     );
 
-    balls.push(ball);
+    balls.push(ball); //adds each ball to the array
 }
 
 //animation loop function
 function loop() {
-    ctx.fillStyle = 'fgba(0, 0, 0, 0.25)'; //makes balls visible bc background is semi-transparent
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.25)'; //makes ball trails visible bc background is semi-transparent black
     ctx.fillRect(0, 0, width, height);
 
+    //run our functions for each ball in the array
     for (let i = 0; i < balls.length; i++) {
         balls[i].draw();
         balls[i].update();
         balls[i].collisionDetect();
     }
 
+    //recursively running our function so balls keep bouncing
     requestAnimationFrame(loop);
 }
 
