@@ -24,6 +24,11 @@ We want the user to be able to control an "evil cirle" and see changes to the bo
  * Function to update ball's data
    * Changing this.x and this.y to keep ball in window
 
+ * Function for collision detection
+   * FOR each ball
+   * IF to determine it's 2 different balls
+   * IF to change color of balls at collision
+
  * Store and populate balls
    * Create array
    * WHILE
@@ -56,8 +61,17 @@ We want the user to be able to control an "evil cirle" and see changes to the bo
    * x += velX
    * y += velY
 
+ * balls[]
+   * Create balls with WHILE and add to array
+
  * loop()
    * ctx.fillStyle and ctx.fillRect() to fill canvas w/ background color
    * Animation loop
    * FOR to draw() and update()
    * requestAnimationFrame()
+
+ * collisionDetect()
+   * FOR loop for each ball
+   * Nested IF 1 - make sure it's 2 different balls
+   * INIT
+   * Nested IF 2 - change color of balls
