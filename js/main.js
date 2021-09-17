@@ -11,16 +11,18 @@ function random(min, max) {
   return num;
 }
 
-//function to generate ball behavior
+//function to generate ball behavior -- SWITCHED TO CLASS
 //creates a starting point on screen, speed, color, and size for each ball
-function Ball(x, y, velX, velY, color, size) {
-  this.x = x;
-  this.y = y;
-  this.velX = velX;
-  this.velY = velY;
-  this.color = color;
-  this.size = size;
-}
+class Ball{
+  constructor(x, y, velX, velY, color, size) {
+    this.x = x;
+    this.y = y;
+    this.velX = velX;
+    this.velY = velY;
+    this.color = color;
+    this.size = size;
+  }
+}  
 
 //function to draw the balls
 Ball.prototype.draw = function() {
